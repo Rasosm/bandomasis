@@ -17,12 +17,15 @@
 
                             <div id="{{ $restorant['id'] }}" class="list-table d-flex" style="justify-content: space-between">
 
+
                                 <div>
                                     <h5>{{$restorant->title}}</h5>
                                     <p>{{$restorant->townt}}</p>
                                     <p>{{$restorant->address}}</p>
                                     <p>{{$restorant->time}}</p>
 
+                                    <div class="count">({{$restorant->restorantDishes()->count()}})
+                                    </div>
 
                                 </div>
                                 @if(Auth::user()?->role == 'admin')

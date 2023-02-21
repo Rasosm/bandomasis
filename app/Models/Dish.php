@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Dish extends Model
 {
     use HasFactory;
+
+    public function dishRestorant()
+    {
+        return $this->belongsTo(Restorant::class, 'restorant_id', 'id');
+    }
 }

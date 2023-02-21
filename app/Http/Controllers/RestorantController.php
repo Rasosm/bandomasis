@@ -100,6 +100,11 @@ class RestorantController extends Controller
      */
     public function destroy(Restorant $restorant)
     {
-        //
+        if(!$restorant->restorantDishes()->count()){
+            $restorant->delete();
+            return redirect()->route('restorants-index');
+        }
+        return redirect()->back()->with('not', 'You can not delete this restorant, because it has some dishes');
+
     }
 }
