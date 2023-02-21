@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestorantController as R;
 use App\Http\Controllers\DishController as D;
+use App\Http\Controllers\FrontController as F;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,13 @@ use App\Http\Controllers\DishController as D;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('/', [F::class, 'home'])->name('start')->middleware('roles:A|M|C');
+Route::get('/dish/{dish}', [F::class, 'showDish'])->name('show-dish')->middleware('roles:A|M|C');
+Route::post('/add-to-cart', [F::class, 'addToCart'])->name('add-to-cart')->middleware('roles:A|M|C');
+Route::get('/cart', [F::class, 'cart'])->name('cart');
+Route::post('/cart', [F::class, 'updateCart'])->name('update-cart');
+Route::post('/make-order', [F::class, 'makeOrder'])->name('make-order');
 
 
 Route::prefix('admin/restorants')->name('restorants-')->group(function () {
