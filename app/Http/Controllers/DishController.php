@@ -90,7 +90,7 @@ class DishController extends Controller
         $dish->price = $request->dish_price;
 
         $dish->save();
-        return redirect()->route('dishes-index');
+        return redirect()->route('dishes-index')->with('ok', 'The dish succesfully added');;
 
     }
 
