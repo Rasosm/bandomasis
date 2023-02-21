@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 use App\Models\Restorant;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class DishController extends Controller
 {
@@ -42,6 +44,28 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make(
+        $request->all(),
+        [
+        
+        'dish_title' => 'required|min:3|max:100|regex:/^([a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ\s]+){3,}$/',
+        'dish_price' => 'required|regex:/^[1-9]\d*(\.\d{1,2})?$/'
+
+        ],
+        [
+            'dish_title.required' => 'Please enter dish title',
+            'dish_title.min' => 'Please enter at least 3 characters',
+            'dish_title.max' => 'Please enter correct dish title. Dish name has too many characters',
+            'dish_title.regex' => 'Please enter correct dish title',
+            'dish_price.required' => 'Please enter price',
+            'dish_price.regex' => 'Please enter correct price',
+        ]);
+            
+            if ($validator->fails()) {
+                $request->flash();
+                return redirect()->back()->withErrors($validator);
+            }
+
         $dish = new Dish;
 
         if ($request->file('photo')) {

@@ -61,12 +61,7 @@ class FrontController extends Controller
             's' => $request->s ?? ''
         ]);
           
-      
-
-
-        return view('front.home', [
-            'dishes' => $dishes
-        ]);
+              
     }
 
 }
