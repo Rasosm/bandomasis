@@ -17,7 +17,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all()->sortBy('title');
+        $dishes = Dish::all();
         return view('back.dishes.index', [
             'dishes' => $dishes
 ]);
@@ -90,7 +90,7 @@ class DishController extends Controller
         $dish->price = $request->dish_price;
 
         $dish->save();
-        return redirect()->route('dishes-index')->with('ok', 'The dish succesfully added');;
+        return redirect()->route('dishes-index')->with('ok', 'The dish succesfully added');
 
     }
 
@@ -151,7 +151,7 @@ class DishController extends Controller
         $dish->price = $request->dish_price;
 
         $dish->save();
-        return redirect()->route('dishes-index');
+        return redirect()->route('dishes-index')->with('ok', 'The dish succesfully updated');
     }
 
     /**

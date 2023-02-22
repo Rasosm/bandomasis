@@ -59,6 +59,16 @@
         gap: 20px;
         align-items: center;
     }
+    .card-body{
+        .time-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+            flex-direction: row;
+        }
+    }
+    
 
 }
 

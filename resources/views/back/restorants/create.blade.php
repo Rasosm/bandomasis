@@ -27,22 +27,36 @@
                             <label class="form-label">Address</label>
                             <input type="text" name="restorant_address" class="form-control" placeholder="address" value="{{old('restorant_address')}}">
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Working hours</label>
-                            <input type="text" name="restorant_time" class="form-control" placeholder="working hours" value="{{old('restorant_timen')}}">
-                        </div>
-                        <div class="mb-3" style="justify-content: center; display: flex">
-                            <button type="submit" class="btn btn-outline-warning mt-4">Save</button>
+                        <div class="time-row d-flex">
+                            <div class="col-4">
+                                <div class="mb-3" style="margin-right:20px">
 
-                        </div>
-                        @csrf
+                                    <label class="form-label">Open</label>
+                                    <input type="time" name="restorant_start" class="form-control" placeholder="open" value="{{old('restorant_start')}}">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Close</label>
 
-                    </form>
+                                    <input type="time" name="restorant_end" class="form-control" placeholder="close" value="{{old('restorant_end')}}">
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
+                <div class="mb-3" style="justify-content: center; display: flex">
+                    <button type="submit" class="btn btn-outline-warning mt-4">Save</button>
+
+                </div>
+                @csrf
+
+                </form>
             </div>
         </div>
-
     </div>
+
+</div>
 </div>
 
 @endsection

@@ -56,10 +56,11 @@
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">Select Restorant</label>
-                            <select class="form-select" name="country_id">
+                            <select class="form-select" name="restorant_id">
                                 <option value="all">All</option>
                                 @foreach($restorants as $restorant)
                                 <option value="{{$restorant->id}}" @if($restorant->id == $restorantShow) selected @endif>{{$restorant->title}}</option>
+
                                 @endforeach
                             </select>
                         </div>

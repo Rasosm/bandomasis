@@ -40,21 +40,23 @@ class DatabaseSeeder extends Seeder
          $faker = Faker::create();
 
         foreach(range(1, 21) as $i) {
+            // $start = rand(8, 11);
+            // $end = rand(19, 24);
             
             DB::table('restorants')->insert([
                 'title' => $faker->company,
                 'town' => $faker->city,
                 'address' => $faker->streetAddress,
-                'time' => $faker->phoneNumber,
-                
+                'start' => '10.00',
+                'end' => '22.00',
             ]);
         }
 
          foreach(range(1, 21) as $i) {
-            
+            $price = rand(7, 24);
             DB::table('dishes')->insert([
                 'title' => $faker->state,
-                'price' => $faker->buildingNumber,
+                'price' => $price,
                 'restorant_id' => $i
                 
             ]);

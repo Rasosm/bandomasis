@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('title', 100);
             $table->string('town', 100);
             $table->string('address', 200);
-            $table->string('time', 200);
+            $table->time('start')->nullable();;
+            $table->time('end')->nullable();;
             $table->timestamps();
         });
     }

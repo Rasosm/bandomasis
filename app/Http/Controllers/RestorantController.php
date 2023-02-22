@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Restorant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class RestorantController extends Controller
 {
@@ -15,9 +16,17 @@ class RestorantController extends Controller
      */
     public function index()
     {
-       $restorants = Restorant::all()->sortBy('title');
+        $restorants = Restorant::all()->sortBy('title');
+        // $restorants = $restorants->map(function($t) {
+        //     $t->startNice = Carbon::parse($t->start)->format('h:m');
+        //     $t->endNice = Carbon::parse($t->end)->format('h:m');
+        //     return $t;
+        // });
+
+         
         return view('back.restorants.index', [
             'restorants' => $restorants
+            
              ]);
     }
 
@@ -40,10 +49,17 @@ class RestorantController extends Controller
     public function store(Request $request)
     {
         $restorant = new Restorant;
+
+        $start = Carbon::parse($request->restorant_start);
+        $end = Carbon::parse($request->restorant_end);
+
         $restorant->title = $request->restorant_title;
         $restorant->town = $request->restorant_town;
         $restorant->address = $request->restorant_address;
-        $restorant->time = $request->restorant_time;
+        // $restorant->start = $start;
+        // $restorant->end = $end;
+        $restorant->start = ($request->restorant_start);
+        $restorant->end = $request->restorant_end;
         
         $restorant->save();
 
@@ -86,11 +102,12 @@ class RestorantController extends Controller
         $restorant->title = $request->restorant_title;
         $restorant->town = $request->restorant_town;
         $restorant->address = $request->restorant_address;
-        $restorant->time = $request->restorant_time;
+        $restorant->start = $request->restorant_start;
+        $restorant->end = $request->restorant_end;
         
         $restorant->save();
 
-        return redirect()->route('restorants-index', ['#'.$restorant->id])->with('ok', 'Congradulations! You are created new restaurant');
+        return redirect()->route('restorants-index', ['#'.$restorant->id])->with('ok', 'Restaurant was updated');
     }
 
     /**

@@ -81,9 +81,9 @@
 @endif --}}
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-3">
-            {{-- @include('back.common.cats') --}}
-        </div>
+        {{-- <div class="col-3">
+            @include('back.common.cats')
+        </div> --}}
 
 
         <div class="col-9">

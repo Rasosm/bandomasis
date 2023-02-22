@@ -29,29 +29,47 @@
                         <div class="mb-3">
                             <label class="form-label">Address</label>
                             <input type="text" name="restorant_address" class="form-control" value="{{$restorant->address}}">
-
-
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label class="form-label">Working hours</label>
-                            <input type="text" name="restorant_time" class="form-control" value="{{$restorant->time}}">
+                            <input type="time" name="restorant_start" class="form-control" value="{{$restorant->start}}">
+                        <input type="time" name="restorant_end" class="form-control" value="{{$restorant->end}}">
+                </div> --}}
 
+                <div class="time-row d-flex">
+                    <div class="col-4">
+                        <div class="mb-3" style="margin-right:20px">
+
+                            <label class="form-label">Open</label>
+                            <input type="time" name="restorant_start" class="form-control" value="{{$restorant->start}}">
 
                         </div>
-                        <div class="mb-3" style="justify-content: center; display: flex">
-                            <button type="submit" class="btn btn-outline-warning mt-4">Save</button>
+                    </div>
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label class="form-label">Close</label>
+
+                            <input type="time" name="restorant_end" class="form-control" value="{{$restorant->end}}">
 
                         </div>
-
-                        @csrf
-                        @method('put')
-
-                    </form>
+                    </div>
                 </div>
+
+
+                <div class="mb-3" style="justify-content: center; display: flex">
+                    <button type="submit" class="btn btn-outline-warning mt-4">Save</button>
+
+                </div>
+
+                @csrf
+                @method('put')
+
+                </form>
             </div>
         </div>
-
     </div>
+
+</div>
 </div>
 
 @endsection
