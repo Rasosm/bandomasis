@@ -120,11 +120,9 @@
 
                                     <form action="{{route('add-to-cart')}}" method="post">
                                         <div class="d-flex buy-btn">
-                                            <input class="form-control input-buy" type="number" min="1" name="count" value="1">
-
-
+                                            <input class="form-control input-buy" type="number" min="1" max="5" name="count" value="1">
                                             <input type="hidden" name="product" value="{{$dish->id}}">
-                                            <button type="submit" class="btn btn-outline-primary">Add</button>
+                                            <button type="submit" class="btn btn-outline-primary">Rate</button>
                                         </div>
 
                                         @csrf
