@@ -2,6 +2,7 @@
 // @import url('https://fonts.bunny.net/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=Roboto:wght@300;400;500&display=swap');
 
+@import "@fortawesome/fontawesome-free/css/all.css";
 // Variables
 @import 'variables';
 
@@ -143,4 +144,72 @@ h3 {
 
 .alert {
     text-align: center;
+}
+
+a {
+    text-decoration: none;
+
+}
+footer {
+    margin-top: 40px;
+    font-style: italic;
+    color: #777;
+
+    .footer-title {
+        font-style: normal;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    a {
+        font-size: 13px;
+        // color: black;
+        color: #777;
+
+    }
+}
+
+.footer{
+    background-color: #04091E;
+
+}
+
+.footer-title {
+    font-style: normal;
+    margin-top: 15px;
+    color: #777;
+}
+.heading{
+    margin-top: 15px;
+        color: #fff;
+        font-size: 18px;
+}
+.fa-solid {
+    margin-right: 7px;
+}
+.socials {
+    display: flex;
+    align-items: center;
+    a{
+font-size: 20px;
+    }
+    
+}
+
+.socials-icon {
+    text-decoration: none;
+    color: #fff;
+    margin: 10px;
+   
+}
+
+.socials-icon:first-child {
+    margin-left: 0px;
+}
+
+.socials-icon:hover {
+    color: var(--bluegradient1);
 }

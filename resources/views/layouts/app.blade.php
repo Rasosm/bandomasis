@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Scripts -->
     @vite(['resources/sass/back/app.scss', 'resources/js/back/app.js'])
 </head>
@@ -105,8 +106,11 @@
         <main class="py-4">
             @include('layouts.messages')
 
+
             @yield('content')
         </main>
     </div>
+    @include('layouts.bottom')
+
 </body>
 </html>

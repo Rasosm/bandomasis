@@ -22,8 +22,8 @@
                                     <h5>{{$restorant->title}}</h5>
                                     <p>{{$restorant->townt}}</p>
                                     <p>{{$restorant->address}}</p>
-                                    <p>Open: {{$restorant->start}} - {{$restorant->end}}</p>
-                                    {{-- <p>Open: {{$restorant->startNice}} - {{$restorant->endtNice}}</p> --}}
+                                    {{-- <p>Open: {{$restorant->start}} - {{$restorant->end}}</p> --}}
+                                    <p>Open: {{$restorant->startNice}} - {{$restorant->endNice}}</p>
                                     <div class="count">({{$restorant->restorantDishes()->count()}})
                                     </div>
 
