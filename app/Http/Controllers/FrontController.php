@@ -18,24 +18,6 @@ class FrontController extends Controller
     public function home(Request $request)
     {
 
-    // $dishRate = Dish::where('id','=', $request->product)->first();
-    // $rate=json_decode($dishRate->rating_json,1);
-    // $request->user_id = Auth::user()->id;
-    // if($rate){
-        // $rate[$request->user_id]=$request->rate;
-    // }else{
-    //     $rate = [$request->user_id=> $request->rate];
-    // }
-    // $rating=array_sum($rate)/count($rate);
-    // $counts=count($rate);
-    // $rate=json_encode($rate);
-    // DB::table('dish')->where('id', $request->product) ->update([ 'rating_json' => $rate]);
-    // DB::table('dish')->where('id', $request->product) ->update([ 'rating' => $rating]);
-    // DB::table('dish')->where('id', $request->product) ->update([ 'counts' => $counts]);
-
-
-
-
     
        $perPageShow = in_array($request->per_page, Dish::PER_PAGE) ? $request->per_page : '8';
        if(!$request->s) {
@@ -130,5 +112,25 @@ class FrontController extends Controller
 
         return redirect()->route('start');
     }
+    public function rate(Request $request, Dish $dish)
+    {
+        $dishRate = Dish::where('id','=', $request->productRate)->first();
+        dump($request->productRate);
+        $rate = json_decode($dishRate->rating_json, 1);
+        $request->user_id = Auth::user()->id;
+        if($rate){
+            $rate[$request->user_id]=$request->rate;
+        }else{
+            $rate = [$request->user_id=> $request->rate];
+        }
+        $rating=array_sum($rate)/count($rate);
+        $counts=count($rate);
+        $rate=json_encode($rate);
+        DB::table('dishes')->where('id', $request->productRate)->update([ 'rating_json' => $rate]);
+        DB::table('dishes')->where('id', $request->productRate)->update([ 'rating' => $rating]);
+        DB::table('dishes')->where('id', $request->productRate)->update([ 'counts' => $counts]);
 
+        return redirect()->back();
+
+    }
 }

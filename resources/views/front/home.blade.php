@@ -108,14 +108,40 @@
                                 </a>
 
                                 <div class="card-header">
-                                    <p class="card-title" style="font-size: 18px; font-weight: bold; line-height: 1.4">{{$dish->title}}</p>
-                                    <p class="card-title">{{$dish->dishRestorant->title}}</p>
+                                    <div class="d-flex justify-content-between">
+
+
+                                        <p class="fw-bold">{{$dish->title}}</p>
+                                        <div>
+                                            <p class="fw-bold" ">  {{$dish->rating}}/5</p>
+                                        <form action=" {{route('rate')}}" method="post">
+                                                <div class="d-flex buy-btn">
+                                                    <input class="form-control input-buy" type="number" min="1" max="5" name="rate" value="5">
+                                                    <input type="hidden" name="productRate" value="{{$dish->id}}">
+                                                    <input type="hidden" name="count" value="{{$dish->count}}">
+                                                    <button type="submit" class="btn btn-outline-primary">Rate</button>
+
+                                                </div>
+
+
+                                                @csrf
+                                                </form>
+                                        </div>
+
+
+                                        {{-- <p style="font-weight: bold"> Votes: {{$dish->counts}}
+                                        </p> --}}
+                                    </div>
+
+                                    <p class=" card-title">{{$dish->dishRestorant->title}}</p>
                                 </div>
                                 <div class="card-body">
-
                                     <p style="font-weight: bold"> Price: {{$dish->price}} eur</p>
-
+                                    {{-- <p style="font-weight: bold"> Rating: {{$dish->rating}}/5</p>
+                                    <p style="font-weight: bold"> Votes: {{$dish->counts}} </p> --}}
                                 </div>
+
+
                                 <div class="buy">
 
                                     <form action="{{route('add-to-cart')}}" method="post">
@@ -127,9 +153,8 @@
 
                                         @csrf
                                     </form>
+
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -148,9 +173,5 @@
 
     </div>
 </div>
-
-
-
-
 
 @endsection

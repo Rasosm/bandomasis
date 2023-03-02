@@ -86,7 +86,7 @@
         </div> --}}
 
 
-        <div class="col-9">
+        <div class="col-10">
             <div class="card">
 
                 <div class="card-header card-header-cats">
@@ -96,46 +96,69 @@
 
 
                 @forelse($dishes as $dish)
-                <div id="{{ $dish['id'] }}" class="card card-list">
+                <div class="container">
+                    <div class="row justify-content-center">
 
-                    <div class="card-header-list">
-                        <p class="card-title card-title-bold">{{$dish->title}}</p>
+                        <div id="{{ $dish['id'] }}" class="card card-list">
+                            <div class="card-body card-body-list">
 
-                        <p class="card-title">{{$dish->dishRestorant->title}}</p>
-                    </div>
-                    <div class="card-body card-body-list">
+                                <div class="col-3">
 
-                        <p style="font-weight: bold"> Price: {{$dish->price}} eur</p>
-                        <div class="smallimg">
-                            @if($dish->photo)
-                            <img src="{{asset($dish->photo)}}">
-                            @else
-                            <img src="{{asset('/dishes/no.jpg')}}">
+                                    {{-- <div class="card-header-list"> --}}
+                                    <p class="card-title card-title-bold">{{$dish->title}}</p>
+                                    {{-- </div> --}}
+                                </div>
 
-                            @endif
+
+                                <div class="col-3">
+
+                                    <p class="card-title">{{$dish->dishRestorant->title}}</p>
+                                </div>
+
+
+                                <div class="col-2">
+
+                                    <p style="font-weight: bold"> Price: {{$dish->price}} eur</p>
+                                </div>
+                                <div class="col-1">
+
+                                    <div class="smallimg">
+                                        @if($dish->photo)
+                                        <img src="{{asset($dish->photo)}}">
+                                        @else
+                                        <img src="{{asset('/dishes/no.jpg')}}">
+
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-2">
+
+                                    <div class="buttons">
+
+
+                                        <a class="btn btn-outline-success" href="{{route('dishes-edit', $dish)}}">Edit</a>
+                                        @if(Auth::user()?->role == 'admin')
+
+                                        <form action="{{route('dishes-delete', $dish)}}" method="post">
+                                            <button type="submit" class="btn btn-outline-danger btn-delete">Delete</button>
+
+                                            @csrf
+                                            @method('delete')
+                                        </form>
+                                        @endif
+                                    </div>
+                                </div>
+
+
+                            </div>
                         </div>
-                        <div class="buttons">
 
 
-                            <a class="btn btn-outline-success" href="{{route('dishes-edit', $dish)}}">Edit</a>
-                            @if(Auth::user()?->role == 'admin')
-
-                            <form action="{{route('dishes-delete', $dish)}}" method="post">
-                                <button type="submit" class="btn btn-outline-danger btn-delete">Delete</button>
-
-                                @csrf
-                                @method('delete')
-                            </form>
-                            @endif
-                        </div>
-
-
+                        @empty
+                        <div class="list-group-item">No types yet</div>
                     </div>
                 </div>
 
-
-                @empty
-                <div class="list-group-item">No types yet</div>
                 @endforelse
 
 

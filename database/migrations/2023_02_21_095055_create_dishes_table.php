@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('photo', 200)->nullable();
             $table->unsignedBigInteger('restorant_id');
             $table->foreign('restorant_id')->references('id')->on('restorants');
+            $table->text('rating_json')->nullable();
+            $table->decimal('rating', 4, 2)->unsigned()->default(0);
+            $table->decimal('counts', 4, 0)->unsigned()->default(0);
             $table->timestamps();
         });
     }

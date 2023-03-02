@@ -27,6 +27,7 @@ Route::post('/add-to-cart', [F::class, 'addToCart'])->name('add-to-cart')->middl
 Route::get('/cart', [F::class, 'cart'])->name('cart');
 Route::post('/cart', [F::class, 'updateCart'])->name('update-cart');
 Route::post('/make-order', [F::class, 'makeOrder'])->name('make-order');
+Route::post('/rate', [F::class, 'rate'])->name('rate')->middleware('roles:A|M|C');
 
 
 Route::prefix('admin/restorants')->name('restorants-')->group(function () {
