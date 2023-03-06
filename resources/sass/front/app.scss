@@ -12,6 +12,17 @@
     width: 150px;
     height: auto;
 }
+.mystyle {
+    background-image: url("/public/img/no.jpg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.95;
+}
+
+// border-radius: 41px;    // top: 109px;    // min-height: 400px;    // text-align: center;}
 // a{
 // .user-color {
 //         color: red;

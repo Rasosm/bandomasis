@@ -35,6 +35,7 @@ class FrontController extends Controller
                     'desc_title' => $dishes->orderBy('title', 'desc'),
                     'asc_price' => $dishes->orderBy('price'),
                     'desc_price' => $dishes->orderBy('price', 'desc'),
+                    'desc_rating' => $dishes->orderBy('rating', 'desc'),
                     default => $dishes
             };
 
@@ -115,7 +116,7 @@ class FrontController extends Controller
     public function rate(Request $request, Dish $dish)
     {
         $dishRate = Dish::where('id','=', $request->productRate)->first();
-        dump($request->productRate);
+        
         $rate = json_decode($dishRate->rating_json, 1);
         $request->user_id = Auth::user()->id;
         if($rate){
@@ -130,7 +131,8 @@ class FrontController extends Controller
         DB::table('dishes')->where('id', $request->productRate)->update([ 'rating' => $rating]);
         DB::table('dishes')->where('id', $request->productRate)->update([ 'counts' => $counts]);
 
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect(url()->previous().'#'.$request->user_id);
 
     }
 }

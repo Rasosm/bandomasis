@@ -14,6 +14,7 @@ class Dish extends Model
         'desc_title' => 'Title Z-A',
         'asc_price' => 'Price 0-9',
         'desc_price' => 'Price 9-0',
+        'desc_rating' => 'Best rated'
     ];
 
     const PER_PAGE = [

@@ -7,7 +7,7 @@
 
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center ">
 
         <form action="{{route('start')}}" method="get">
             <div class="container">
@@ -88,10 +88,13 @@
         <div>
 
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 ">
+
+
+
 
                     @forelse($dishes as $dish)
-                    <div class="col-3 one-card">
+                    <div class="col-12 d-flex">
 
 
                         <div class="list-table">
@@ -112,18 +115,16 @@
 
 
                                         <p class="fw-bold">{{$dish->title}}</p>
-                                        <div>
+                                        <div id={{$dish->id}}>
+
                                             <p class="fw-bold" ">  {{$dish->rating}}/5</p>
                                         <form action=" {{route('rate')}}" method="post">
                                                 <div class="d-flex buy-btn">
-                                                    <input class="form-control input-buy" type="number" min="1" max="5" name="rate" value="5">
+                                                    <input class="form-control input-buy me-2" type="number" min="1" max="5" name="rate" value="5">
                                                     <input type="hidden" name="productRate" value="{{$dish->id}}">
                                                     <input type="hidden" name="count" value="{{$dish->count}}">
                                                     <button type="submit" class="btn btn-outline-primary">Rate</button>
-
                                                 </div>
-
-
                                                 @csrf
                                                 </form>
                                         </div>
