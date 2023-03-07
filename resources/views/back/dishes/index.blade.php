@@ -101,26 +101,7 @@
 
                         <div id="{{ $dish['id'] }}" class="card card-list">
                             <div class="card-body card-body-list">
-
-                                <div class="col-3">
-
-                                    {{-- <div class="card-header-list"> --}}
-                                    <p class="card-title card-title-bold">{{$dish->title}}</p>
-                                    {{-- </div> --}}
-                                </div>
-
-
-                                <div class="col-3">
-
-                                    <p class="card-title">{{$dish->dishRestorant->title}}</p>
-                                </div>
-
-
                                 <div class="col-2">
-
-                                    <p style="font-weight: bold"> Price: {{$dish->price}} eur</p>
-                                </div>
-                                <div class="col-1">
 
                                     <div class="smallimg">
                                         @if($dish->photo)
@@ -131,6 +112,35 @@
                                         @endif
                                     </div>
                                 </div>
+
+                                <div class="col-2">
+
+                                    {{-- <div class="card-header-list"> --}}
+                                    <p class="title">{{$dish->title}}</p>
+                                    <p class="">({{$dish->ingridients}})</p>
+
+
+                                    {{-- </div> --}}
+                                </div>
+
+
+
+                                <div class="col-3">
+
+                                    <p class="title">{{$dish->dishRestorant->title}}</p>
+                                    <p>{{$dish->dishRestorant->town}}</p>
+
+                                    <p>{{$dish->dishRestorant->address}}</p>
+
+
+                                </div>
+
+
+                                <div class="col-2">
+
+                                    <p class="price"> Price: {{$dish->price}} eur</p>
+                                </div>
+
                                 <div class="col-2">
 
                                     <div class="buttons">

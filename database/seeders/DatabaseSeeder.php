@@ -57,7 +57,8 @@ class DatabaseSeeder extends Seeder
             DB::table('dishes')->insert([
                 'title' => $faker->state,
                 'price' => $price,
-                'restorant_id' => $i
+                'restorant_id' => $i,
+                'ingridients' => $faker->sentence
                 
             ]);
         }

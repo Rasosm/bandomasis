@@ -20,7 +20,7 @@
 
                                 <div>
                                     <h5>{{$restorant->title}}</h5>
-                                    <p>{{$restorant->townt}}</p>
+                                    <p>{{$restorant->town}}</p>
                                     <p>{{$restorant->address}}</p>
                                     {{-- <p>Open: {{$restorant->start}} - {{$restorant->end}}</p> --}}
                                     <p>Open: {{$restorant->startNice}} - {{$restorant->endNice}}</p>
