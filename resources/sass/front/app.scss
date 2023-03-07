@@ -83,6 +83,9 @@
         }
     }
 }
+.header-sort{
+    justify-content: end;
+}
 
 .card-header .card-body .buy {
     margin-left: 20px;
@@ -101,6 +104,12 @@
     margin-top: 10px;
 
 }
+.head-buttons{
+    display: flex;
+    
+}
+
+
 
 .buy {
     margin-bottom: 10px;
@@ -291,4 +300,24 @@ footer {
 
 .socials-icon:hover {
     color: var(--bluegradient1);
+}
+@media (max-width: 576px){
+.search{
+    display:none;
+
+}
+}
+@media (max-width: 768px) {
+    .header-sort {
+        justify-content: center;
+    .front-card{
+        justify-content: center;
+    }
+    }
+}
+@media (max-width: 992px) {
+    .header-sort {
+        justify-content: start;
+
+    }
 }

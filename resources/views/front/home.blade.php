@@ -11,15 +11,16 @@
 
         <form action="{{route('start')}}" method="get">
             <div class="container">
-                <div class="row justify-content-start">
-                    <div class="col-2">
+                <div class="row justify-content-start search">
+                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-4 col-7">
+
                         <div class="mb-3">
                             <label class="form-label"></label>
                             <input type="text" class="form-control" name="s" value="{{$s}}">
                         </div>
                     </div>
                     <div class=" col-4">
-                        <div class="head-buttons">
+                        <div class="">
                             <button type="submit" class="btn btn-outline-success" style="margin-top: 22px">Search</button>
 
                         </div>
@@ -29,8 +30,10 @@
         </form>
         <form action="{{route('start')}}" method="get">
             <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-2">
+                <div class="row header-sort">
+
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 col-5">
                         <div class="mb-3">
                             <label class="form-label">Sort</label>
                             <select class="form-select" name="sort">
@@ -42,7 +45,9 @@
                         </div>
                     </div>
 
-                    <div class="col-1">
+                    <div class="col-xx-1 col-xl-1 col-lg-2 col-md-2 col-sm-3 col-5">
+
+
                         <div class="mb-3">
                             <label class="form-label">Show</label>
                             <select class="form-select" name="per_page">
@@ -53,7 +58,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 col-6">
+
                         <div class="mb-3">
                             <label class="form-label">Select Restorant</label>
                             <select class="form-select" name="restorant_id">
@@ -68,14 +74,10 @@
 
 
                     <div class="col-2 ">
-                        <div class=" head-buttons">
+                        <div class="head-buttons">
                             <button type="submit" class="btn btn-outline-success" style="margin-right: 5px; margin-top: 30px">Show</button>
 
                             <a href="{{route('start')}}" class="btn btn-outline-success" style="margin-top: 30px">Reset</a>
-
-
-
-
                         </div>
                     </div>
 
@@ -89,14 +91,8 @@
 
             <div class="container">
                 <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 ">
-
-
-
-
                     @forelse($dishes as $dish)
-                    <div class="col-12 d-flex">
-
-
+                    <div class="col-9 front-card">
                         <div class="list-table">
                             <div class="">
                                 <a href="{{route('show-dish', $dish)}}">

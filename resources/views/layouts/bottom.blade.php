@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row footer-row-1">
 
-            <div class="col-12 col-lg-4 col-xl-3">
+            <div class="col-6 col-lg-3 col-xl-3">
                 <h5 class="footer-title">IT Services</h5>
                 <div class="footer-contact-box">
                     <i class="fa-solid fa-phone footer-contact-icon"></i><a href="tel:+88015569569" class="footer-link">Tel. +370 5 214 23753</a>
@@ -21,7 +21,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 col-xl-3">
+            <div class="col-6 col-lg-3 col-xl-3">
                 <h5 class="footer-title">Finance department</h5>
                 <div class="footer-contact-box">
                     <i class="fa-solid fa-phone footer-contact-icon"></i><a href="tel:+88015569569" class="footer-link">Tel. +370 5 214 2374</a>
@@ -41,7 +41,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 col-xl-3">
+            <div class="col-6 col-lg-3 col-xl-3">
                 <h5 class="footer-title">Administration</h5>
                 <div class="footer-contact-box">
                     <i class="fa-solid fa-phone footer-contact-icon"></i><a href="tel:+88015569569" class="footer-link">Tel. +370 5 214 2344</a>
@@ -61,7 +61,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 col-xl-3">
+            <div class="col-6 col-lg-3 col-xl-3">
                 <div class="heading">Follow us</div>
 
                 <p class="description">Let us be social</p>
