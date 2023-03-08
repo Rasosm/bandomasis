@@ -33,7 +33,7 @@
 
 .nav-link {
     font-size: 18px;
-    font-weight: 600;
+    // font-weight: 600;
     color: #198753;
 }
 
@@ -77,7 +77,7 @@
         svg.cart {
             width: 40px;
             height: 40px;
-            fill: #198753;
+            fill: $green;
             margin-right: 5px;
 
         }
@@ -211,7 +211,7 @@ h3 {
 
 .page-link.active,
 .active>.page-link {
-    background-color: rgb(238, 192, 9);
+    background-color: #F69220;
 
 }
 

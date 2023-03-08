@@ -21,12 +21,12 @@ use App\Http\Controllers\OrderController as O;
 //     return view('welcome');
 // });
 
-Route::get('/', [F::class, 'home'])->name('start')->middleware('roles:A|M|C');
-Route::get('/dish/{dish}', [F::class, 'showDish'])->name('show-dish')->middleware('roles:A|M|C');
-Route::post('/add-to-cart', [F::class, 'addToCart'])->name('add-to-cart')->middleware('roles:A|M|C');
+Route::get('/', [F::class, 'home'])->name('start');
+Route::get('/dish/{dish}', [F::class, 'showDish'])->name('show-dish');
+Route::post('/add-to-cart', [F::class, 'addToCart'])->name('add-to-cart');
 Route::get('/cart', [F::class, 'cart'])->name('cart');
 Route::post('/cart', [F::class, 'updateCart'])->name('update-cart');
-Route::post('/make-order', [F::class, 'makeOrder'])->name('make-order');
+Route::post('/make-order', [F::class, 'makeOrder'])->name('make-order')->middleware('roles:A|M|C');
 Route::post('/rate', [F::class, 'rate'])->name('rate')->middleware('roles:A|M|C');
 
 
